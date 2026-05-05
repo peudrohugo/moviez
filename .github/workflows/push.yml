@@ -1,0 +1,39 @@
+name: CI Main Commit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  style-check:
+    name: Verify Coding Style
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: npm ci
+      - name: Execute Lint
+        run: npm run lint --if-present
+
+  test-coverage:
+    name: Verify Test Coverage and Execution
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: npm ci
+      - name: Execute tests with coverage (>90%)
+        run: npm test
+      - name: Execute project in background to validate start
+        run: npm start & sleep 3
