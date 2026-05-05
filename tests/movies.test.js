@@ -5,7 +5,7 @@ describe("Movies API Tests", () => {
   let savedMovieId;
 
   it("Should store a new Movie (POST /api/movies)", async () => {
-    const res = (await request(app).post("/api/movies")).send({
+    const res = await request(app).post("/api/movies").send({
       title: "Pulp Fiction",
       director: "Quentin Tarantino",
     });
