@@ -1,5 +1,7 @@
 # Moviez API
 
+[![DockerHub](https://badgen.net/badge/icon/docker?icon=docker&label=DockerHub)](https://hub.docker.com/u/pedrohugo09/moviez)
+
 A simple RESTful API for managing movies usind Node.js and Express, with tests and CI/CD pipeline
 
 ## Running the project
